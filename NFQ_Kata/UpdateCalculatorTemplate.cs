@@ -23,7 +23,7 @@ internal abstract class UpdateCalculatorTemplate : IUpdateCalculator
         return CurrentItemSellIn - 1;
     }
 
-    protected abstract int GetQualityIncrementalUnit();
+    protected internal abstract int GetQualityIncrementalUnit();
 
     private static int GetCorrectUpdatedQuality(int updatedQuality)
     {

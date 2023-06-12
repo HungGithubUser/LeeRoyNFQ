@@ -7,8 +7,8 @@ internal class AgedBrieUpdateCalculator : UpdateCalculatorTemplate
     {
     }
 
-    protected override int GetQualityIncrementalUnit()
+    protected internal override int GetQualityIncrementalUnit()
     {
-        return CurrentItemSellIn <= 0 ? 2 : 1;
+        return -new NormalUpdateCalculator(CurrentItemSellIn, CurrentItemQuality).GetQualityIncrementalUnit();
     }
 }
