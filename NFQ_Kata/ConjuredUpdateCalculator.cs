@@ -1,10 +1,11 @@
 ﻿namespace NFQ_Kata;
 
-internal class ConjuredUpdateCalculator : UpdateCalculatorTemplate
+internal class ConjuredUpdateCalculator : NormalUpdateCalculator
 {
-    public ConjuredUpdateCalculator(int currentItemSellIn, int currentItemQuality) : base(currentItemSellIn, currentItemQuality)
+    public ConjuredUpdateCalculator(int currentItemSellIn, int currentItemQuality) : base(currentItemSellIn,
+        currentItemQuality)
     {
     }
 
-    protected override int GetQualityIncrementalUnit() => CurrentItemSellIn <= 0 ? -4 : -2;
+    protected override int GetQualityIncrementalUnit() => base.GetQualityIncrementalUnit() * 2;
 }
