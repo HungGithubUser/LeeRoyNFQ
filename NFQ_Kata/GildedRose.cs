@@ -8,25 +8,26 @@ public class GildedRose
     private const string ConjuredItemName = "Conjured Mana Cake";
     private readonly IList<Item> _items;
 
-    public GildedRose(IList<Item> items) => _items = items;
+    public GildedRose(IList<Item> items)
+    {
+        _items = items;
+    }
 
     public void UpdateQuality()
     {
-        foreach (var item in _items)
-        {
-            UpdateSingleItem(item);
-        }
+        foreach (var item in _items) UpdateSingleItem(item);
     }
 
     private static void UpdateSingleItem(Item item)
     {
-        var updateCalculator = GetUpdateCalculator(item);
-        item.Quality = updateCalculator.GetUpdatedQuality();
-        item.SellIn = updateCalculator.GetUpdatedSellIn();
+        var calculator = GetUpdateCalculator(item);
+        item.Quality = calculator.GetUpdatedQuality();
+        item.SellIn = calculator.GetUpdatedSellIn();
     }
 
-    private static IUpdateCalculator GetUpdateCalculator(Item item) =>
-        item.Name switch
+    private static IUpdateCalculator GetUpdateCalculator(Item item)
+    {
+        return item.Name switch
         {
             SulfurasItemName => new SulfurasUpdateCalculator(item.SellIn),
             BackstageItemName => new BackStageUpdateCalculator(item.SellIn, item.Quality),
@@ -34,4 +35,5 @@ public class GildedRose
             ConjuredItemName => new ConjuredUpdateCalculator(item.SellIn, item.Quality),
             _ => new NormalUpdateCalculator(item.SellIn, item.Quality)
         };
+    }
 }

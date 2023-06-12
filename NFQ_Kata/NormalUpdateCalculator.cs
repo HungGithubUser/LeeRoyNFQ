@@ -7,5 +7,8 @@ internal class NormalUpdateCalculator : UpdateCalculatorTemplate
     {
     }
 
-    protected override int GetQualityIncrementalUnit() => CurrentItemSellIn <= 0 ? -2 : -1;
+    protected override int GetQualityIncrementalUnit()
+    {
+        return CurrentItemSellIn <= 0 ? -2 : -1;
+    }
 }

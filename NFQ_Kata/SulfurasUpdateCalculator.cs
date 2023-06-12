@@ -2,16 +2,21 @@
 
 internal class SulfurasUpdateCalculator : IUpdateCalculator
 {
-    private readonly int _currentItemSellIn;
-
     private const int LegendaryUnchangeableQuality = 80;
-
-    public int GetUpdatedQuality() => LegendaryUnchangeableQuality;
-
-    public int GetUpdatedSellIn() => _currentItemSellIn;
+    private readonly int _currentItemSellIn;
 
     public SulfurasUpdateCalculator(int currentItemSellIn)
     {
         _currentItemSellIn = currentItemSellIn;
+    }
+
+    public int GetUpdatedQuality()
+    {
+        return LegendaryUnchangeableQuality;
+    }
+
+    public int GetUpdatedSellIn()
+    {
+        return _currentItemSellIn;
     }
 }

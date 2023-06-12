@@ -96,7 +96,6 @@ public class GildedRoseTests
     [TestMethod]
     public void ShouldCalculateBackStageItemCorrectly()
     {
-
         var backStageItem1 = new Item
         {
             Name = "Backstage passes to a TAFKAL80ETC concert",
@@ -167,7 +166,7 @@ public class GildedRoseTests
     {
         var normalItem = new Item
         {
-            Name = "+5 Dexterity Vest", SellIn = 10, Quality = 20,
+            Name = "+5 Dexterity Vest", SellIn = 10, Quality = 20
         };
         var list = new List<Item>
         {

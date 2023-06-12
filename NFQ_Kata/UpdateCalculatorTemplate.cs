@@ -13,12 +13,22 @@ internal abstract class UpdateCalculatorTemplate : IUpdateCalculator
         CurrentItemQuality = currentItemQuality;
     }
 
-    public int GetUpdatedQuality() => GetCorrectUpdatedQuality(CurrentItemQuality + GetQualityIncrementalUnit());
-    public int GetUpdatedSellIn() => CurrentItemSellIn - 1;
+    public int GetUpdatedQuality()
+    {
+        return GetCorrectUpdatedQuality(CurrentItemQuality + GetQualityIncrementalUnit());
+    }
+
+    public int GetUpdatedSellIn()
+    {
+        return CurrentItemSellIn - 1;
+    }
+
     protected abstract int GetQualityIncrementalUnit();
 
-    private static int GetCorrectUpdatedQuality(int updatedQuality) =>
-        updatedQuality >= MaximumAllowedQuality ? MaximumAllowedQuality :
-        updatedQuality <= MinimumAllowedQuality ? MinimumAllowedQuality :
-        updatedQuality;
+    private static int GetCorrectUpdatedQuality(int updatedQuality)
+    {
+        return updatedQuality >= MaximumAllowedQuality ? MaximumAllowedQuality :
+            updatedQuality <= MinimumAllowedQuality ? MinimumAllowedQuality :
+            updatedQuality;
+    }
 }

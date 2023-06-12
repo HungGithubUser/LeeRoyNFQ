@@ -7,5 +7,8 @@ internal class ConjuredUpdateCalculator : NormalUpdateCalculator
     {
     }
 
-    protected override int GetQualityIncrementalUnit() => base.GetQualityIncrementalUnit() * 2;
+    protected override int GetQualityIncrementalUnit()
+    {
+        return base.GetQualityIncrementalUnit() * 2;
+    }
 }
